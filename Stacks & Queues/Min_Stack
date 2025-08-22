@@ -31,6 +31,10 @@ class MinStack {
     }
 }
 
+
+//The main thing to learn from this question is to maintain another Stack to keep track of the min element currenty present in the stack 
+
+
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack obj = new MinStack();
