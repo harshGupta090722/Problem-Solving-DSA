@@ -18,3 +18,5 @@ class Solution {
         return st.isEmpty();
     }
 }
+
+//The thing to learn from this question is the usage of Maps that have key value pair of opening and closing parenthesis.
