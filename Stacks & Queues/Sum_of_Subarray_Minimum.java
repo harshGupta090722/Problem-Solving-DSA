@@ -1,37 +1,50 @@
-class Solution {
-    public int sumSubarrayMins(int[] arr) {
-        int n = arr.length;
-        int mod = (int) 1e9 + 7;
+import java.util.*;
 
-        int []left=new int[n];
-        int []right=new int[n];
-        
-        //Monotonic Stack for previous less element
-        Stack<int[]> stack1=new Stack<>();
-        for(int i=0;i<n;i++){
-            int cnt=1;
-            while(!stack1.isEmpty() && stack1.peek()[0]>arr[i]){
-                cnt+=stack1.pop()[1];
+class Solution {
+    public static int sumSubarrayMins(int[] arr) {
+        int n = arr.length;
+        int MOD = (int) 1e9 + 7;
+
+        //nse
+        int nse[] = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for (int i = n - 1; i >= 0; i--) {
+            while (!st.isEmpty() && arr[i] <= arr[st.peek()]) {
+                st.pop();
             }
-            left[i]=cnt;
-            stack1.push(new int[]{arr[i],cnt});
+            if (st.isEmpty())
+                nse[i] = n;
+            else
+                nse[i] = st.peek();
+            st.push(i);
         }
-         
-         //Monotonic stack for next less or equal element
-         Stack<int[]> stack2=new Stack<>();
-        for(int i=n-1;i>=0;i--){
-            int cnt=1;
-            while(!stack2.isEmpty() && stack2.peek()[0]>=arr[i]){
-                cnt+=stack2.pop()[1];
+
+        //pse
+        int pse[] = new int[n];
+        Stack<Integer> st2 = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            while (!st2.isEmpty() && arr[i] < arr[st2.peek()]) {
+                st2.pop();
             }
-            right[i]=cnt;
-            stack2.push(new int[]{arr[i],cnt});
+            if (st2.isEmpty())
+                pse[i] = -1;
+            else
+                pse[i] = st2.peek();
+            st2.push(i);
         }
-        //final sum 
-        long ans=0;
-        for(int i=0;i<n;i++){
-            ans=(ans+(long)arr[i]*left[i]*right[i])%mod;
+
+        //Contribution of each element
+        long sum = 0;
+        for (int i = 0; i < n; i++) {
+            long left = i - pse[i];
+            long right = nse[i] - i;
+            sum = (sum + (long) arr[i] * left * right) % MOD;
         }
-        return (int)ans;
+        return (int) sum;
+    }
+
+    public static void main(String args[]) {
+        int arr[] = { 3, 1, 2, 4 };
+        System.out.println(sumSubarrayMins(arr));
     }
 }
