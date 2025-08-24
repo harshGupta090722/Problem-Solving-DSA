@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AsteroidCollision {
+public class Asteroid_Collision {
     static Stack<Integer> st = new Stack<>();
 
     public static int[] asteroidCollision(int[] arr, int idx) {
