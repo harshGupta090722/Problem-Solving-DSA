@@ -1,7 +1,4 @@
-package Arrays;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class UnionOfTwoArrays {
     public static int[] unionArray(int[] nums1, int[] nums2) {

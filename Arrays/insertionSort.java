@@ -1,6 +1,6 @@
 class insertionSort {
 
-    public static void insertionsort(int arr[]) {
+    public static void insertionsortIterative(int arr[]) {
         for (int i = 1; i < arr.length; i++) {
             int j = i - 1;
             int key = arr[i];
@@ -12,9 +12,24 @@ class insertionSort {
         }
     }
 
+    public static void insetionSortRecursive(int arr[], int i, int j) {
+        if (i == arr.length - 1) {
+            return;
+        }
+
+        
+
+    }
+
     public static void main(String args[]) {
         int arr[] = { 12, 11, 13, 5, 6 };
-        insertionsort(arr);
+        insertionsortIterative(arr);
+        System.out.println("Insertion sort using iteration");
+        for (int i : arr) {
+            System.out.println(i);
+        }
+        insetionSortRecursive(arr, 1, 0);
+        System.out.println("Insertion sort using recursion");
         for (int i : arr) {
             System.out.println(i);
         }
@@ -22,12 +37,12 @@ class insertionSort {
 }
 
 /*
-Dry Run for  i=4
-5 11 12 13 6
-5 11 12 13 13
-5 11 12 12 13
-5 11 11 12 13
-5 6 11 12 13
-
-No swapping is done !!
-*/
+ * Dry Run for i=4 -iterative approach
+ * 5 11 12 13 6
+ * 5 11 12 13 13
+ * 5 11 12 12 13
+ * 5 11 11 12 13
+ * 5 6 11 12 13
+ * 
+ * No swapping is done !!
+ */

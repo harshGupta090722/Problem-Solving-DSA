@@ -1,7 +1,5 @@
-package Arrays;
-
 public class removeDuplicates {
-    public static  int removeDuplicates(int[] nums) {
+    public static  int removeduplicates(int[] nums) {
         int k = 1;
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] != nums[i - 1]){
@@ -18,7 +16,7 @@ public class removeDuplicates {
     }
     public static void main(String[] args) {
      int nums[]={1,1,2};
-     System.out.println("The number of unique elements in the array is="+removeDuplicates(nums));
+     System.out.println("The number of unique elements in the array is="+removeduplicates(nums));
      print(nums);
     }
 }

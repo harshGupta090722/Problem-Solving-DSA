@@ -1,3 +1,5 @@
+import java.util.*;
+
 class MyQueue {
     Stack<Integer> st = new Stack<>();
 
@@ -29,8 +31,8 @@ class MyQueue {
     }
 }
 
-//the main thing to learn from this question is to push element at the bottom of stack rather than on top ,in order to implement Queue.
-
+// the main thing to learn from this question is to push element at the bottom
+// of stack rather than on top ,in order to implement Queue.
 
 /**
  * Your MyQueue object will be instantiated and called as such:

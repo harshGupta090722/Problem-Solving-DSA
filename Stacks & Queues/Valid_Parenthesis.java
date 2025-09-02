@@ -1,4 +1,5 @@
-class Solution {
+import java.util.*;
+class isvalid {
     public boolean isValid(String s) {
         Map<Character, Character> map = new HashMap<>();
         map.put(')', '(');

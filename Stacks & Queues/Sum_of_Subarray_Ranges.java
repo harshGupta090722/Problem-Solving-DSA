@@ -1,3 +1,4 @@
+import java.util.*;
 class Solution {
     public long subArrayRanges(int[] arr) {
         int n = arr.length;

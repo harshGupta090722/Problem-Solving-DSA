@@ -1,3 +1,5 @@
+import java.util.*;
+
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
 
@@ -12,7 +14,6 @@ class Solution {
             stack.push(nums2[i]);
         }
 
-
         int[] ans = new int[nums1.length];
         for (int i = 0; i < nums1.length; i++) {
             ans[i] = nextGreaterMap.get(nums1[i]);
@@ -22,4 +23,7 @@ class Solution {
     }
 }
 
-//Things to remember-1)Use Deque as Stack using ArrayDeque-This is better,faster than Stack.They behave similar to Stack when implemented using ArrayDeque.2)Use of Map-to map nge of nums2 ,then fetching nge of each of num1 using that map.
+// Things to remember-1)Use Deque as Stack using ArrayDeque-This is
+// better,faster than Stack.They behave similar to Stack when implemented using
+// ArrayDeque.2)Use of Map-to map nge of nums2 ,then fetching nge of each of
+// num1 using that map.
