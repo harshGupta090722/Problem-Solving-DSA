@@ -1,5 +1,3 @@
-package Arrays;
-
 public class isprime {
 
     public static boolean isPrime(int n) {

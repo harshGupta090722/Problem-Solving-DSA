@@ -1,5 +1,3 @@
-package Arrays;
-
 public class checkifArrayIsSorted {
     public static boolean check(int[] nums) {
         int breakpoint = -1;
