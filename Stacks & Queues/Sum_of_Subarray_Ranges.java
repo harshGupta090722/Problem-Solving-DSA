@@ -1,5 +1,5 @@
 import java.util.*;
-class Solution {
+class Sum_of_Subarrary_Ranges {
     public long subArrayRanges(int[] arr) {
         int n = arr.length;
         long sum = 0;

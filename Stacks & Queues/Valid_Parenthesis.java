@@ -1,23 +1,33 @@
 import java.util.*;
-class isvalid {
-    public boolean isValid(String s) {
-        Map<Character, Character> map = new HashMap<>();
-        map.put(')', '(');
-        map.put('}', '{');
-        map.put(']', '[');
+
+class Valid_Parenthesis {
+    public static boolean isValid(String s) {
+        char ch0 = s.charAt(0);
+        if (ch0 == ')' || ch0 == '}' || ch0 == ']')
+            return false;
 
         Stack<Character> st = new Stack<>();
-        for (char ch : s.toCharArray()) {
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
             if (ch == '(' || ch == '{' || ch == '[')
                 st.push(ch);
-            else {
-                if (st.isEmpty() || st.peek() != map.get(ch))
+            else if (!st.isEmpty()) {
+                if (ch == ')' && st.peek() == '(' || ch == '}' && st.peek() == '{' || ch == ']' && st.peek() == '[')
+                    st.pop();
+                else
                     return false;
-                st.pop();
-            }
+            } else
+                st.push(ch);
         }
-        return st.isEmpty();
+
+        if (st.isEmpty())
+            return true;
+        return false;
+    }
+
+    public static void main(String args[]) {
+        System.out.println(isValid("]"));
     }
 }
-
-//The thing to learn from this question is the usage of Maps that have key value pair of opening and closing parenthesis.
