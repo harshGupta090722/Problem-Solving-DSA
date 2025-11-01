@@ -1,19 +1,18 @@
 import java.util.*;
 
-public class PostfixToInfix {
+public class PrefixToInfix {
 
-    public static String postfixToInfix(String postfix) {
+    public static String prefixToInfix(String postfix) {
         Stack<String> st = new Stack<>();
-
-        for (int i = 0; i < postfix.length(); i++) {
+        for (int i = postfix.length() - 1; i >= 0; i--) {
             char ch = postfix.charAt(i);
 
             if (Character.isLetterOrDigit(ch)) {
-                st.push(ch + "");   //'A'+"" -->"A"
+                st.push(ch + "");
             } else {
                 String op1 = st.pop();
                 String op2 = st.pop();
-                String exp = "(" + op2 +ch+ op1 + ")";
+                String exp = "(" + op1 + ch + op2 + ")";
                 st.push(exp);
             }
         }
@@ -21,7 +20,7 @@ public class PostfixToInfix {
     }
 
     public static void main(String args[]) {
-        String postfix = "AB-DE+F*/";
-        System.out.println(postfixToInfix(postfix));
+        String postfix = "*+ab-cd";
+        System.out.println(prefixToInfix(postfix));
     }
 }
