@@ -11,11 +11,10 @@ public class Next_Greater_element {
                 st.pop();
             }
 
-            if (st.isEmpty()) {
+            if (st.isEmpty()) 
                 nge[i] = -1;
-            } else {
+             else 
                 nge[i] = st.peek();
-            }
 
             st.push(nums[i]);
         }
