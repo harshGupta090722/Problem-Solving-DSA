@@ -1,11 +1,11 @@
 import java.util.*;
-class Sum_of_Subarrary_Ranges {
-    public long subArrayRanges(int[] arr) {
-        int n = arr.length;
-        long sum = 0;
 
-        //nse
-        int nse[] = new int[n];
+public class Sum_of_Subarray_Ranges {
+
+    public static long subArrayRanges(int[] arr) {
+        int n = arr.length;
+        // nse
+        int[] nse = new int[n];
         Stack<Integer> st = new Stack<>();
         for (int i = n - 1; i >= 0; i--) {
             while (!st.isEmpty() && arr[i] <= arr[st.peek()]) {
@@ -14,11 +14,11 @@ class Sum_of_Subarrary_Ranges {
             if (st.isEmpty())
                 nse[i] = n;
             else
-                nse[i] = st.peek();
+            nse[i] = st.peek();
+
             st.push(i);
         }
-
-        //pse
+        // pse
         int pse[] = new int[n];
         Stack<Integer> st2 = new Stack<>();
         for (int i = 0; i < n; i++) {
@@ -29,8 +29,10 @@ class Sum_of_Subarrary_Ranges {
                 pse[i] = -1;
             else
                 pse[i] = st2.peek();
+
             st2.push(i);
         }
+
         // nge
         int nge[] = new int[n];
         Stack<Integer> st3 = new Stack<>();
@@ -38,10 +40,11 @@ class Sum_of_Subarrary_Ranges {
             while (!st3.isEmpty() && arr[i] >= arr[st3.peek()]) {
                 st3.pop();
             }
-            if (st3.isEmpty())
+            if (st3.isEmpty()) {
                 nge[i] = n;
-            else
+            } else
                 nge[i] = st3.peek();
+
             st3.push(i);
         }
 
@@ -52,13 +55,15 @@ class Sum_of_Subarrary_Ranges {
             while (!st4.isEmpty() && arr[i] > arr[st4.peek()]) {
                 st4.pop();
             }
+
             if (st4.isEmpty())
                 pge[i] = -1;
             else
                 pge[i] = st4.peek();
+
             st4.push(i);
         }
-
+        long sum = 0;
         for (int i = 0; i < n; i++) {
             long leftMax = i - pge[i];
             long rightMax = nge[i] - i;
@@ -67,9 +72,15 @@ class Sum_of_Subarrary_Ranges {
             long leftMin = i - pse[i];
             long rightMin = nse[i] - i;
             long minCount = leftMin * rightMin;
-         //Total=∑(sum of contributions as max)−∑(sum of contributions as min)
+
             sum += (long) arr[i] * (maxCount - minCount);
+
         }
         return sum;
+    }
+
+    public static void main(String args[]) {
+        int nums[] = { 4,-2,-3,4,1 };
+        System.out.println(subArrayRanges(nums)); 
     }
 }
