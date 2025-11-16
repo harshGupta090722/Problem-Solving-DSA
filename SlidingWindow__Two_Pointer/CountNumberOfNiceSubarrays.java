@@ -1,23 +1,20 @@
+import java.util.*;
+//This problem can be easily converted to binary sum equals to K
 public class CountNumberOfNiceSubarrays {
 
     public static int numberOfSubarrays(int[] nums, int k) {
-        int count = 0, left = 0, right = 0;
+        Map<Integer,Integer> map = new HashMap<>();
+        int count = 0;
+        int prefixSum = 0;
+        map.put(0, 1);
 
-        while (right < nums.length) {
+        for (int i : nums) {
+            prefixSum += (i%2);
 
-            if (nums[right] % 2 != 0) 
-                k--;
-            
-            if (k < 0)
-                count++;
-                
-            while (k < 0) {
-                if (nums[left] % 2 != 0)
-                    k++;
-                left++;
-            }
+        if(map.containsKey(prefixSum-k))
+        count+=map.get(prefixSum-k);
 
-            right++;
+        map.put(prefixSum,map.getOrDefault(prefixSum,0)+1);
         }
         return count;
     }
