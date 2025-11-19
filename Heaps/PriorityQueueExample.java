@@ -1,19 +1,19 @@
 import java.util.*;
 
-class PriorityQueueExample{
-    public static void main(String  args[]){
-    PriorityQueue<Integer> pq=new PriorityQueue<>(Comparator.reverseOrder());
+public class PriorityQueueExample {
+    public static void main(String[] args) {
 
-    pq.add(10);
-    pq.add(5);
-    pq.add(20);
+        PriorityQueue<Integer> pg = new PriorityQueue<>(Comparator.reverseOrder());
 
-    System.out.println(pq);
+        pg.add(4);
+        pg.add(1);
+        pg.add(46);
+        pg.add(49);
+        pg.add(41);
 
-    System.out.println(pq.peek());
-
-    System.out.println(pq.poll());
-
-    System.out.println(pq);
+        while (!pg.isEmpty()) {
+            System.out.println(pg.peek());
+            pg.remove();
+        }
     }
 }
