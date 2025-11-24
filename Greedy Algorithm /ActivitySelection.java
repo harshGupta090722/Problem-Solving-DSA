@@ -31,7 +31,6 @@ public class ActivitySelection{
         for(int i=0;i<ans.size();i++){
             System.out.print("A"+ans.get(i)+" ");   
         }
-        
     }
     
     /*  end time is sorted
