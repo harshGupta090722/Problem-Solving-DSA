@@ -17,6 +17,7 @@ public class MergeKSortedLists {
                 head=head.next;
             }
         }
+        //done this questions
         
         ListNode dummy=new ListNode(0);
         ListNode curr=dummy;
