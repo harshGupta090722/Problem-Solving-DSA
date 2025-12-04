@@ -10,6 +10,7 @@ public class countNodes {
             this.right=null;
         }  
     }
+    
     public static int NumberOfNodes(Node root){
         if(root==null)
             return 0;

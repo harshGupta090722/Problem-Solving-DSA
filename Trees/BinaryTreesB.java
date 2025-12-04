@@ -88,21 +88,20 @@ public class BinaryTreesB {
     
     public static void main(String args[]){
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
-        BinaryTree tree=new BinaryTree();
-        Node root=tree.buildTree(nodes);
-        
-        tree.preorder(root);
-        System.out.println();
-        
-        tree.inorder(root);
-        System.out.println();
-        
-        tree.postorder(root);
-        System.out.println();
-        
-        tree.LevelOrder(root);
-        System.out.println();
-        
+
+        Node root=BinaryTree.buildTree(nodes);
         System.out.println(root.data);
+        
+        BinaryTree.preorder(root);
+        System.out.println();
+        
+        BinaryTree.inorder(root);
+        System.out.println();
+        
+        BinaryTree.postorder(root);
+        System.out.println();
+        
+        BinaryTree.LevelOrder(root);
+        System.out.println();
     }
 }
