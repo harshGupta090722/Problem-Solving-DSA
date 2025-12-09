@@ -4,8 +4,8 @@ public class Diameter {
         Node left,right;
         public Node(int data){
             this.data=data;
-            Node left=null;
-            Node right=null;
+            this.left=null;
+            this.right=null;
         }
     }
     
