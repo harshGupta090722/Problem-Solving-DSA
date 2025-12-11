@@ -32,7 +32,6 @@ public class Diameter {
         if(root==null)
             return 0;
         
-        
         int leftDiam=diamaterMI(root.left);
         int leftHt=height(root.left);
         int rightDiam=diamaterMI(root.right);
@@ -71,8 +70,6 @@ public class Diameter {
         root.right = new Node(3);
         root.left.left = new Node(4);
         root.left.right = new Node(5);
-        root.right.left = new Node(6);
-        root.right.right = new Node(7);
         
         System.out.println(diamaterMI(root));
         System.out.println(diamaterMII(root).diam);
