@@ -1,5 +1,3 @@
-import javax.swing.tree.TreeNode;
-
 public class heightBalancedBinaryTree {
     static class Node{
         int val;

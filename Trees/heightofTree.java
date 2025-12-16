@@ -17,9 +17,9 @@ public class heightofTree {
         
         int lh=height(root.left);
         int rh=height(root.right);
+        
         return  Math.max(lh,rh)+1;
     }
-    
     
     public static void main(String args[]){
         /*
