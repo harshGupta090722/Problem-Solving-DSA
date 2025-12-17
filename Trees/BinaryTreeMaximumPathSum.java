@@ -1,7 +1,5 @@
-import java.util.*;
-
 public class BinaryTreeMaximumPathSum {
-    class Node{
+    static class Node{
         int val;
         Node left,right;
         
@@ -11,36 +9,33 @@ public class BinaryTreeMaximumPathSum {
             this.right=null;
         }
     }
+    static int maxSum=Integer.MIN_VALUE;
     
-    static class BuildTree{
-       static int idx=-1;
-       public static Node buildTree(int root[]){
-        idx++;
-        if(root[idx]==-1)
-            return null;
-
-        Node newNode=new Node(root[idx]);
-        newNode.left=buildTree(root);
-        newNode.right=buildTree(root);
-
-        return newNode;
-       }
-
-       public static int height(Node root){
-        if(root==null)
-            return 0;
-        
-        int lh=height(root.left);
-        int rh=height(root.right);
-        
-        return  Math.max(lh,rh)+1;
-    }
-    }
     public static int maxPathSum(Node root) {
-       
+        dfs(root);
+        return maxSum;
+    }
+    
+    private static int dfs(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        
+        int leftGain = Math.max(0, dfs(node.left));
+        int rightGain = Math.max(0, dfs(node.right));
+        
+        int currentPathSum = node.val + leftGain + rightGain;
+        maxSum = Math.max(maxSum, currentPathSum);
+        
+        return node.val + Math.max(leftGain, rightGain);
     }
     public static void main(String args[]){
-        int root[]={-10,9,20,null,null,15,7};
-        System.out.println(maxPathSum(null));
+        
+        Node root = new Node(-10);
+        root.left = new Node(9);
+        root.right = new Node(20);
+        root.right.left = new Node(15);
+        root.right.right = new Node(7);
+        System.out.println(maxPathSum(root));
     }
 }
