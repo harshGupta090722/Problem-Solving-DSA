@@ -2,11 +2,11 @@ import java.util.*;
 public class LowestCommonAncestor {
     
     static class TreeNode{
-        int data;
+        int val;
         TreeNode left,right;
         
-        TreeNode(int data){
-            this.data=data;
+        TreeNode(int val){
+            this.val=val;
             this.left=null;
             this.right=null; 
         }
@@ -18,7 +18,7 @@ public class LowestCommonAncestor {
         
         path.add(root);
         
-        if(root.data==n){
+        if(root.val==n){
             return true;
         }
         
@@ -33,7 +33,7 @@ public class LowestCommonAncestor {
         return false;
     }
     
-    public static TreeNode lowestCommonAncestor(TreeNode root,int n1,int n2) {
+    public static TreeNode lowestCommonAncestorI(TreeNode root,int n1,int n2) {
         ArrayList<TreeNode> path1=new ArrayList<>();
         getPath(root,n1,path1);
         
@@ -49,6 +49,23 @@ public class LowestCommonAncestor {
         TreeNode lca=path1.get(i-1);
         return lca;
     }
+    
+    public static TreeNode lowestCommonAncestorII(TreeNode root,int n1,int n2) {
+        if(root==null || root.val==n1 || root.val==n2)
+            return root;
+        
+        TreeNode leftlca=lowestCommonAncestorII(root.left, n1, n2);
+        TreeNode rightlca=lowestCommonAncestorII(root.right, n1, n2);
+        
+        if(rightlca==null)
+            return leftlca;
+        
+        if(leftlca==null)
+            return rightlca;
+        
+        return root;
+    }
+    
     public static void main(String args[]){
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -58,6 +75,7 @@ public class LowestCommonAncestor {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
         
-        System.out.println(lowestCommonAncestor(root, 4, 7 ).data);
+        System.out.println(lowestCommonAncestorI(root, 4, 7 ).val);
+        System.out.println(lowestCommonAncestorII(root, 4, 6 ).val);
     }
 }
