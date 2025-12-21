@@ -1,4 +1,3 @@
-import java.util.*;
 public class SameTree{
     static class Node{
         int val;
