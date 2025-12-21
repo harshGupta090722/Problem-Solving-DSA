@@ -1,6 +1,7 @@
+//minimum difference between the values of any nodes of the tree
 import java.util.ArrayList;
 
-public class MinimumDistanceBetweenNodes {
+public class MinimumValueDifferenceBetweenNodes {
     static class TreeNode{
         int val;
         TreeNode left,right;
