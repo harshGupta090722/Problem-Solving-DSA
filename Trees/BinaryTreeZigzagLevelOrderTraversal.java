@@ -16,6 +16,7 @@ public class BinaryTreeZigzagLevelOrderTraversal {
     public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> list=new ArrayList<>();
         
+        return list;
     }
     public static void main(String args[]){
 
