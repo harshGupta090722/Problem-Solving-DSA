@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class AllNodesDistanceKInBinaryTree {
     public static class TreeNode{
         int val;
@@ -11,18 +10,14 @@ public class AllNodesDistanceKInBinaryTree {
     }
     
     public static List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
-        
         Map<TreeNode,TreeNode> parent=new HashMap<>();
         buildParentMap(root,null,parent);
-        
         
         Queue<TreeNode> queue=new LinkedList<>();
         Set<TreeNode> visited=new HashSet<>();
         
-        
         queue.add(target);
         visited.add(target);
-        
         
         int distance=0;
         
@@ -60,7 +55,6 @@ public class AllNodesDistanceKInBinaryTree {
     public static void buildParentMap(TreeNode node,TreeNode par,Map<TreeNode,TreeNode> parent){
         if(node==null)
             return;
-        
         
         parent.put(node,par);
         buildParentMap(node.left,node,parent);
